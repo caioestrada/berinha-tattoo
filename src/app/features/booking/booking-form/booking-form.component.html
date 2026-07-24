@@ -1,0 +1,83 @@
+<section class="booking-form">
+  <header class="booking-form__header">
+    <button type="button" class="booking-form__back" (click)="goBack()" aria-label="Voltar">
+      <svg width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="rgba(245,240,232,.6)" stroke-width="2.5" stroke-linecap="round">
+        <polyline points="15,18 9,12 15,6" />
+      </svg>
+    </button>
+    <h1 class="booking-form__title">Sua tattoo</h1>
+  </header>
+
+  @if (dateTimeLabel()) {
+    <div class="booking-form__date-chip">
+      <div class="booking-form__date-chip-inner">
+        <svg width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="var(--color-gold)" stroke-width="2" stroke-linecap="round">
+          <rect x="3" y="4" width="18" height="17" rx="2.5" />
+          <line x1="3" y1="9" x2="21" y2="9" />
+        </svg>
+        <span>{{ dateTimeLabel() }}</span>
+      </div>
+    </div>
+  }
+
+  <form class="booking-form__fields" (submit)="$event.preventDefault(); submit()">
+    <div class="booking-form__field">
+      <label class="booking-form__label" for="clientName">Seu nome</label>
+      <input
+        id="clientName"
+        class="booking-form__input"
+        type="text"
+        placeholder="Como podemos te chamar?"
+        [value]="bookingFlow.clientName()"
+        (input)="onNameInput($any($event.target).value)"
+      />
+    </div>
+
+    <div class="booking-form__field">
+      <div class="booking-form__label">Tamanho</div>
+      <div class="booking-form__sizes">
+        @for (size of sizes; track size.value) {
+          <button
+            type="button"
+            class="booking-form__size"
+            [class.is-selected]="bookingFlow.size() === size.value"
+            (click)="selectSize(size.value)"
+          >
+            <div class="booking-form__size-label">{{ size.label }}</div>
+            <div class="booking-form__size-hint">{{ size.hint }}</div>
+          </button>
+        }
+      </div>
+    </div>
+
+    <div class="booking-form__field">
+      <label class="booking-form__label" for="description">Descrição da ideia</label>
+      <textarea
+        id="description"
+        class="booking-form__input booking-form__textarea"
+        placeholder="Retrato realista do meu gato, pelo longo, fundo neutro..."
+        [value]="bookingFlow.description()"
+        (input)="onDescriptionInput($any($event.target).value)"
+      ></textarea>
+    </div>
+
+    <div class="booking-form__field">
+      <label class="booking-form__label" for="referenceLink">Link de referência</label>
+      <div class="booking-form__input booking-form__input--icon">
+        <svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="rgba(245,240,232,.35)" stroke-width="2" stroke-linecap="round">
+          <path d="M10 13a5 5 0 007.54.54l3-3a5 5 0 00-7.07-7.07l-1.72 1.71" />
+          <path d="M14 11a5 5 0 00-7.54-.54l-3 3a5 5 0 007.07 7.07l1.71-1.71" />
+        </svg>
+        <input
+          id="referenceLink"
+          type="url"
+          placeholder="pinterest.com/pin/..."
+          [value]="bookingFlow.referenceLink()"
+          (input)="onReferenceLinkInput($any($event.target).value)"
+        />
+      </div>
+    </div>
+
+    <button type="submit" class="btn-primary" [disabled]="!canSubmit()">Enviar pedido</button>
+  </form>
+</section>

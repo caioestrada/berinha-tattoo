@@ -1,0 +1,111 @@
+.home__hero {
+  height: 290px;
+  position: relative;
+  background: repeating-linear-gradient(-45deg, #1a1714 0, #1a1714 5px, #201e19 0, #201e19 22px);
+}
+
+.home__hero-content {
+  position: absolute;
+  inset: 0;
+  background: linear-gradient(to bottom, transparent 30%, rgba(12, 11, 9, 0.95) 100%);
+  display: flex;
+  flex-direction: column;
+  justify-content: flex-end;
+  padding: 0 24px 20px;
+}
+
+.home__handle {
+  font: 300 12px var(--font-mono);
+  color: rgba(201, 164, 100, 0.7);
+  letter-spacing: 3px;
+  text-transform: uppercase;
+  margin-bottom: 6px;
+}
+
+.home__title {
+  font: 900 52px/1 var(--font-display);
+  color: var(--color-text);
+  letter-spacing: -1px;
+}
+
+.home__subtitle {
+  font: 400 15px var(--font-body);
+  color: rgba(245, 240, 232, 0.55);
+  margin-top: 4px;
+}
+
+.home__hero-actions {
+  position: absolute;
+  top: 16px;
+  right: 16px;
+  display: flex;
+  gap: 8px;
+  z-index: 1;
+}
+
+.home__hero-icon {
+  width: 34px;
+  height: 34px;
+  background: rgba(12, 11, 9, 0.5);
+  backdrop-filter: blur(12px);
+  border-radius: 50%;
+  border: 1px solid rgba(255, 255, 255, 0.12);
+  display: flex;
+  align-items: center;
+  justify-content: center;
+}
+
+.home__cta {
+  padding: 20px 20px 12px;
+  display: flex;
+  flex-direction: column;
+  gap: 10px;
+}
+
+.home__stats {
+  display: flex;
+  padding: 4px 20px 16px;
+  gap: 1px;
+}
+
+.home__stat {
+  flex: 1;
+  text-align: center;
+  padding: 12px 0;
+  border-right: 1px solid var(--color-border-soft);
+
+  &:last-child {
+    border-right: none;
+  }
+}
+
+.home__stat-value {
+  font: 700 20px var(--font-display);
+  color: var(--color-text);
+}
+
+.home__stat:last-child .home__stat-value {
+  color: var(--color-gold);
+}
+
+.home__stat-label {
+  font: 400 11px var(--font-body);
+  color: var(--color-text-muted);
+  margin-top: 2px;
+}
+
+.home__recent {
+  padding: 0 20px 24px;
+}
+
+.home__recent-grid {
+  display: grid;
+  grid-template-columns: 1fr 1fr 1fr;
+  gap: 3px;
+  border-radius: var(--radius-sm);
+  overflow: hidden;
+}
+
+.home__recent-tile {
+  aspect-ratio: 1;
+}

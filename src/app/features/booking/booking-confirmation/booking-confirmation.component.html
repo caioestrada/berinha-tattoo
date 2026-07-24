@@ -1,0 +1,55 @@
+@if (booking(); as booking) {
+  <section class="booking-confirmation">
+    <div class="booking-confirmation__success">
+      <div class="booking-confirmation__check-ring">
+        <svg width="44" height="44" viewBox="0 0 44 44" fill="none">
+          <polyline
+            class="booking-confirmation__check-mark"
+            points="10,22 18,30 34,14"
+            stroke="var(--color-gold)"
+            stroke-width="3.5"
+            stroke-linecap="round"
+            stroke-linejoin="round"
+          />
+        </svg>
+      </div>
+      <h1 class="booking-confirmation__title">Pedido enviado!</h1>
+      <p class="booking-confirmation__subtitle">A Berinha vai analisar seu pedido<br />e confirmar em breve.</p>
+    </div>
+
+    <div class="card booking-confirmation__summary">
+      <div class="booking-confirmation__summary-header">
+        <span class="section-label">Resumo do pedido</span>
+      </div>
+      <div class="booking-confirmation__summary-body">
+        <div class="booking-confirmation__row">
+          <span class="booking-confirmation__row-label">Data</span>
+          <span class="booking-confirmation__row-value">{{ dateTimeLabel() }}</span>
+        </div>
+        <div class="booking-confirmation__divider"></div>
+        <div class="booking-confirmation__row">
+          <span class="booking-confirmation__row-label">Tamanho</span>
+          <span class="booking-confirmation__row-value">{{ sizeLabel() }}</span>
+        </div>
+        <div class="booking-confirmation__divider"></div>
+        <div class="booking-confirmation__row">
+          <span class="booking-confirmation__row-label">Ideia</span>
+          <span class="booking-confirmation__row-value booking-confirmation__row-value--right">{{ booking.description }}</span>
+        </div>
+        <div class="booking-confirmation__divider"></div>
+        <div class="booking-confirmation__row">
+          <span class="booking-confirmation__row-label">Status</span>
+          <span class="booking-confirmation__status">
+            <span class="booking-confirmation__status-dot"></span>
+            Aguardando aprovação
+          </span>
+        </div>
+      </div>
+    </div>
+
+    <div class="booking-confirmation__actions">
+      <p class="booking-confirmation__note">Você será notificada quando o agendamento for confirmado.</p>
+      <button type="button" class="btn-secondary" (click)="backToHome()">Voltar ao início</button>
+    </div>
+  </section>
+}

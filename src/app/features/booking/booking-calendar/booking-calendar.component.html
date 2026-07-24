@@ -1,0 +1,84 @@
+<section class="booking-calendar">
+  <header class="booking-calendar__header">
+    <h1 class="booking-calendar__title">Agendar</h1>
+    <p class="booking-calendar__subtitle">Escolha uma data disponível</p>
+  </header>
+
+  <div class="booking-calendar__month-nav">
+    <button
+      type="button"
+      class="booking-calendar__nav-btn"
+      [disabled]="!canGoPreviousMonth()"
+      (click)="goPreviousMonth()"
+      aria-label="Mês anterior"
+    >
+      <svg width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5" stroke-linecap="round">
+        <polyline points="15,18 9,12 15,6" />
+      </svg>
+    </button>
+    <div class="booking-calendar__month-label">{{ monthLabel() }}</div>
+    <button type="button" class="booking-calendar__nav-btn" (click)="goNextMonth()" aria-label="Próximo mês">
+      <svg width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5" stroke-linecap="round">
+        <polyline points="9,18 15,12 9,6" />
+      </svg>
+    </button>
+  </div>
+
+  <div class="booking-calendar__grid">
+    @for (header of weekdayHeaders; track $index) {
+      <div class="booking-calendar__grid-header">{{ header }}</div>
+    }
+    @for (day of days(); track (day ? day.iso : 'blank-' + $index)) {
+      @if (day) {
+        <button
+          type="button"
+          class="booking-calendar__day"
+          [class.is-available]="day.available"
+          [class.is-selected]="focusedDate() === day.iso"
+          [class.is-today]="day.isToday"
+          [disabled]="!day.available"
+          (click)="selectDay(day)"
+        >
+          {{ day.dayOfMonth }}
+        </button>
+      } @else {
+        <div class="booking-calendar__day booking-calendar__day--blank"></div>
+      }
+    }
+  </div>
+
+  <div class="booking-calendar__legend">
+    <div class="booking-calendar__legend-item">
+      <span class="booking-calendar__legend-dot is-available"></span>
+      <span>disponível</span>
+    </div>
+    <div class="booking-calendar__legend-item">
+      <span class="booking-calendar__legend-dot"></span>
+      <span>indisponível</span>
+    </div>
+  </div>
+
+  @if (slots().length) {
+    <div class="booking-calendar__slots">
+      <div class="section-label" style="margin-bottom: 10px;">{{ focusedDateLabel() }} · horários</div>
+      <div class="booking-calendar__slots-list">
+        @for (slot of slots(); track slot.time) {
+          <button
+            type="button"
+            class="booking-calendar__slot"
+            [class.is-selected]="focusedTime() === slot.time"
+            [class.is-unavailable]="!slot.available"
+            [disabled]="!slot.available"
+            (click)="selectTime(slot)"
+          >
+            {{ slot.time }}
+          </button>
+        }
+      </div>
+    </div>
+  }
+
+  <div class="booking-calendar__actions">
+    <button type="button" class="btn-primary" [disabled]="!canProceed()" (click)="proceed()">Próximo →</button>
+  </div>
+</section>

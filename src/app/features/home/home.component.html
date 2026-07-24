@@ -1,0 +1,49 @@
+<section class="home">
+  <div class="home__hero">
+    <div class="home__hero-actions">
+      <button type="button" class="home__hero-icon" aria-label="Galeria">
+        <svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="#f5f0e8" stroke-width="2" stroke-linecap="round">
+          <rect x="2" y="2" width="20" height="20" rx="5" />
+          <circle cx="12" cy="12" r="5" />
+          <circle cx="17.5" cy="6.5" r="1.2" fill="#f5f0e8" />
+        </svg>
+      </button>
+      <button type="button" class="home__hero-icon" aria-label="Mais informações">
+        <svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="#f5f0e8" stroke-width="2" stroke-linecap="round">
+          <path d="M12 2a10 10 0 100 20A10 10 0 0012 2z" />
+          <path d="M15 8h-4a2 2 0 00-2 2v0a2 2 0 002 2h2a2 2 0 012 2v0a2 2 0 01-2 2H9M12 6v2M12 16v2" />
+        </svg>
+      </button>
+    </div>
+    <div class="home__hero-content">
+      <div class="home__handle">&#64;berinha.tattoo</div>
+      <h1 class="home__title">BERINHA</h1>
+      <p class="home__subtitle">Tatuadora · Realismo · São Paulo</p>
+    </div>
+  </div>
+
+  <div class="home__cta">
+    <a class="btn-primary" routerLink="/agendar">Agendar minha tattoo</a>
+    <a class="btn-secondary" routerLink="/portfolio">Ver portfólio</a>
+  </div>
+
+  <div class="home__stats">
+    @for (stat of stats; track stat.label) {
+      <div class="home__stat">
+        <div class="home__stat-value">{{ stat.value }}</div>
+        <div class="home__stat-label">{{ stat.label }}</div>
+      </div>
+    }
+  </div>
+
+  <div class="home__recent">
+    <div class="section-label" style="margin-bottom: 12px;">Trabalhos recentes</div>
+    <div class="home__recent-grid">
+      @for (item of recentWork(); track item.id) {
+        <div class="home__recent-tile">
+          <app-placeholder-image [label]="'foto'" [seed]="item.seed" />
+        </div>
+      }
+    </div>
+  </div>
+</section>

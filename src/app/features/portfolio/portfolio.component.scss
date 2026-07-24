@@ -1,0 +1,46 @@
+.portfolio {
+  padding: 16px 20px 24px;
+}
+
+.portfolio__header {
+  display: flex;
+  align-items: baseline;
+  justify-content: space-between;
+  margin-bottom: 14px;
+}
+
+.portfolio__title {
+  font: 700 26px var(--font-display);
+  color: var(--color-text);
+}
+
+.portfolio__count {
+  font: 400 12px var(--font-body);
+  color: var(--color-text-muted);
+}
+
+.portfolio__filters {
+  display: flex;
+  gap: 8px;
+  overflow-x: auto;
+  padding-bottom: 14px;
+}
+
+.portfolio__grid {
+  columns: 2;
+  column-gap: 3px;
+  border-radius: var(--radius-sm);
+}
+
+.portfolio__tile {
+  break-inside: avoid;
+  margin-bottom: 3px;
+  border-radius: 4px;
+  overflow: hidden;
+}
+
+.portfolio__empty {
+  font: 400 13px var(--font-body);
+  color: var(--color-text-muted);
+  padding: 24px 0;
+}

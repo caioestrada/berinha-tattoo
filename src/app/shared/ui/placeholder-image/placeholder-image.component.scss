@@ -1,0 +1,20 @@
+:host {
+  display: block;
+  width: 100%;
+  height: 100%;
+}
+
+.placeholder-image {
+  width: 100%;
+  height: 100%;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  text-align: center;
+}
+
+.placeholder-image__label {
+  font: 400 9px var(--font-mono);
+  color: var(--color-text-faint);
+  padding: 0 6px;
+}

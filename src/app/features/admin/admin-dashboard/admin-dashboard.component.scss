@@ -1,0 +1,186 @@
+:host {
+  display: block;
+  max-width: var(--shell-max-width);
+  margin: 0 auto;
+  min-height: 100dvh;
+  padding-top: env(safe-area-inset-top, 0px);
+  padding-bottom: env(safe-area-inset-bottom, 0px);
+}
+
+.admin__header {
+  padding: 20px 22px 12px;
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+}
+
+.admin__title {
+  font: 700 24px var(--font-display);
+  color: var(--color-text);
+}
+
+.admin__date {
+  font: 400 13px var(--font-body);
+  color: var(--color-text-secondary);
+  margin-top: 2px;
+}
+
+.admin__pending-badge {
+  background: var(--color-gold-soft);
+  border: 1px solid var(--color-gold-border);
+  border-radius: var(--radius-pill);
+  padding: 6px 12px;
+  display: flex;
+  align-items: center;
+  gap: 5px;
+  font: 700 12px var(--font-body);
+  color: var(--color-gold);
+  white-space: nowrap;
+}
+
+.admin__pending-dot {
+  width: 6px;
+  height: 6px;
+  background: var(--color-gold);
+  border-radius: 50%;
+}
+
+.admin__tabs {
+  padding: 0 22px 14px;
+  display: flex;
+  gap: 6px;
+}
+
+.admin__list {
+  padding: 0 22px;
+  display: flex;
+  flex-direction: column;
+  gap: 10px;
+}
+
+.admin__card {
+  background: var(--color-surface);
+  border: 1px solid var(--color-border-soft);
+  border-radius: var(--radius-lg);
+  padding: 14px 16px;
+}
+
+.admin__card--aprovado {
+  background: var(--color-success-soft);
+  border-color: var(--color-success-border);
+}
+
+.admin__card--recusado {
+  background: var(--color-danger-soft);
+  border-color: var(--color-danger-border);
+}
+
+.admin__card-top {
+  display: flex;
+  align-items: flex-start;
+  justify-content: space-between;
+  gap: 12px;
+  margin-bottom: 8px;
+}
+
+.admin__client-name {
+  font: 600 16px var(--font-body);
+  color: var(--color-text);
+}
+
+.admin__client-meta {
+  font: 400 12px var(--font-mono);
+  color: var(--color-text-secondary);
+  margin-top: 2px;
+}
+
+.admin__status-badge {
+  border-radius: 8px;
+  padding: 3px 10px;
+  font: 700 10px var(--font-mono);
+  flex-shrink: 0;
+  text-transform: capitalize;
+}
+
+.admin__status-badge--pendente {
+  background: var(--color-gold-soft);
+  border: 1px solid var(--color-gold-border);
+  color: var(--color-gold);
+}
+
+.admin__status-badge--aprovado {
+  background: rgba(74, 158, 107, 0.15);
+  border: 1px solid var(--color-success-border);
+  color: var(--color-success);
+}
+
+.admin__status-badge--recusado {
+  background: rgba(192, 74, 74, 0.15);
+  border: 1px solid var(--color-danger-border);
+  color: var(--color-danger);
+}
+
+.admin__description {
+  font: 400 13px var(--font-body);
+  color: rgba(245, 240, 232, 0.55);
+  margin-bottom: 4px;
+}
+
+.admin__ref-link {
+  color: var(--color-gold);
+}
+
+.admin__card--pendente .admin__description {
+  margin-bottom: 12px;
+}
+
+.admin__actions {
+  display: flex;
+  gap: 8px;
+}
+
+.admin__approve {
+  flex: 1;
+  background: var(--color-gold);
+  border-radius: var(--radius-sm);
+  padding: 10px;
+  text-align: center;
+  font: 600 14px var(--font-body);
+  color: var(--color-bg);
+  box-shadow: 0 4px 12px rgba(201, 164, 100, 0.25);
+}
+
+.admin__reject {
+  flex: 1;
+  background: var(--color-danger-soft);
+  border: 1px solid var(--color-danger-border);
+  border-radius: var(--radius-sm);
+  padding: 10px;
+  text-align: center;
+  font: 600 14px var(--font-body);
+  color: var(--color-danger);
+}
+
+.admin__empty {
+  font: 400 13px var(--font-body);
+  color: var(--color-text-muted);
+  padding: 24px 0;
+  text-align: center;
+}
+
+.admin__add-slot {
+  padding: 16px 22px;
+}
+
+.admin__add-slot-btn {
+  width: 100%;
+  border: 1.5px dashed var(--color-border);
+  border-radius: var(--radius-md);
+  padding: 14px;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  gap: 8px;
+  font: 500 14px var(--font-body);
+  color: var(--color-text-muted);
+}

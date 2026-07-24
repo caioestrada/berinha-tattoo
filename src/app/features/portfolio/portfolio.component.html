@@ -1,0 +1,29 @@
+<section class="portfolio">
+  <header class="portfolio__header">
+    <h1 class="portfolio__title">Portfólio</h1>
+    <span class="portfolio__count">{{ totalCount() }} trabalhos</span>
+  </header>
+
+  <div class="portfolio__filters">
+    @for (filter of filters; track filter.value) {
+      <button
+        type="button"
+        class="chip"
+        [class.is-active]="activeFilter() === filter.value"
+        (click)="selectFilter(filter.value)"
+      >
+        {{ filter.label }}
+      </button>
+    }
+  </div>
+
+  <div class="portfolio__grid">
+    @for (item of filteredItems(); track item.id) {
+      <div class="portfolio__tile" [style.aspect-ratio]="1 + (item.seed % 3) * 0.3">
+        <app-placeholder-image [label]="item.label" [seed]="item.seed" />
+      </div>
+    } @empty {
+      <p class="portfolio__empty">Nenhum trabalho nessa categoria ainda.</p>
+    }
+  </div>
+</section>

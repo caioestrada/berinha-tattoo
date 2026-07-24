@@ -1,0 +1,60 @@
+<section class="admin">
+  <header class="admin__header">
+    <div>
+      <h1 class="admin__title">Agendamentos</h1>
+      <p class="admin__date">{{ todayLabel }}</p>
+    </div>
+    <div class="admin__pending-badge">
+      <span class="admin__pending-dot"></span>
+      <span>{{ pendingCount() }} pendentes</span>
+    </div>
+  </header>
+
+  <div class="admin__tabs">
+    @for (tab of tabs; track tab.value) {
+      <button type="button" class="chip" [class.is-active]="activeTab() === tab.value" (click)="selectTab(tab.value)">
+        {{ tab.label }}
+      </button>
+    }
+  </div>
+
+  <div class="admin__list">
+    @for (booking of visibleBookings(); track booking.id) {
+      <div class="admin__card" [class]="'admin__card--' + booking.status">
+        <div class="admin__card-top">
+          <div>
+            <div class="admin__client-name">{{ booking.clientName }}</div>
+            <div class="admin__client-meta">{{ dateTimeLabel(booking) }}</div>
+          </div>
+          <div class="admin__status-badge" [class]="'admin__status-badge--' + booking.status">{{ booking.status }}</div>
+        </div>
+
+        <div class="admin__description">
+          "{{ booking.description }}"
+          @if (booking.referenceLink) {
+            · <a class="admin__ref-link" [href]="booking.referenceLink" target="_blank" rel="noopener">ver ref →</a>
+          }
+        </div>
+
+        @if (booking.status === 'pendente') {
+          <div class="admin__actions">
+            <button type="button" class="admin__approve" (click)="approve(booking)">✓ Aprovar</button>
+            <button type="button" class="admin__reject" (click)="reject(booking)">✕ Recusar</button>
+          </div>
+        }
+      </div>
+    } @empty {
+      <p class="admin__empty">Nenhum agendamento por aqui.</p>
+    }
+  </div>
+
+  <div class="admin__add-slot">
+    <button type="button" class="admin__add-slot-btn">
+      <svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="rgba(245,240,232,.4)" stroke-width="2.5" stroke-linecap="round">
+        <line x1="12" y1="5" x2="12" y2="19" />
+        <line x1="5" y1="12" x2="19" y2="12" />
+      </svg>
+      <span>Adicionar horário disponível</span>
+    </button>
+  </div>
+</section>

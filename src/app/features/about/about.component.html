@@ -1,0 +1,25 @@
+<section class="about">
+  <div class="about__avatar">
+    <app-placeholder-image label="foto" [seed]="4" />
+  </div>
+
+  <div class="about__intro">
+    <div class="eyebrow">&#64;berinha.tattoo</div>
+    <h1 class="about__name">Berinha</h1>
+    <p class="about__role">Tatuadora · Realismo · São Paulo</p>
+  </div>
+
+  <p class="about__bio">
+    Tatuando há 5 anos com foco em realismo, retratos e animais. Cada peça é feita sob medida a partir da sua
+    referência, com um bate-papo antes pra alinhar tamanho, local do corpo e traço. Todo pedido passa por uma
+    avaliação antes da confirmação do horário.
+  </p>
+
+  <div class="about__specialties">
+    @for (specialty of specialties; track specialty) {
+      <span class="chip">{{ specialty }}</span>
+    }
+  </div>
+
+  <a class="btn-primary" routerLink="/agendar">Agendar minha tattoo</a>
+</section>

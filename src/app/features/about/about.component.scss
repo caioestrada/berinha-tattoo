@@ -1,0 +1,42 @@
+.about {
+  padding: 0 0 24px;
+}
+
+.about__avatar {
+  height: 220px;
+  border-bottom: 1px solid var(--color-border-soft);
+}
+
+.about__intro {
+  padding: 20px 22px 0;
+}
+
+.about__name {
+  font: 700 32px var(--font-display);
+  color: var(--color-text);
+}
+
+.about__role {
+  font: 400 14px var(--font-body);
+  color: var(--color-text-secondary);
+  margin-top: 4px;
+}
+
+.about__bio {
+  padding: 18px 22px 0;
+  font: 400 14px var(--font-body);
+  color: var(--color-text-secondary);
+  line-height: 1.6;
+}
+
+.about__specialties {
+  padding: 18px 22px 0;
+  display: flex;
+  flex-wrap: wrap;
+  gap: 8px;
+}
+
+.about > .btn-primary {
+  margin: 20px 22px 0;
+  width: auto;
+}

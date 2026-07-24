@@ -1,0 +1,129 @@
+@keyframes checkPop {
+  0% {
+    transform: scale(0) rotate(-12deg);
+    opacity: 0;
+  }
+  70% {
+    transform: scale(1.08) rotate(2deg);
+  }
+  100% {
+    transform: scale(1) rotate(0deg);
+    opacity: 1;
+  }
+}
+
+@keyframes strokeAnim {
+  from {
+    stroke-dashoffset: 60;
+  }
+  to {
+    stroke-dashoffset: 0;
+  }
+}
+
+.booking-confirmation__success {
+  padding: 48px 24px 28px;
+  text-align: center;
+}
+
+.booking-confirmation__check-ring {
+  display: inline-flex;
+  align-items: center;
+  justify-content: center;
+  width: 88px;
+  height: 88px;
+  background: var(--color-gold-soft);
+  border: 2px solid var(--color-gold-border);
+  border-radius: 50%;
+  margin: 0 auto;
+  animation: checkPop 0.5s cubic-bezier(0.34, 1.56, 0.64, 1) 0.1s both;
+}
+
+.booking-confirmation__check-mark {
+  stroke-dasharray: 60;
+  animation: strokeAnim 0.4s ease 0.4s both;
+}
+
+.booking-confirmation__title {
+  font: 700 28px var(--font-display);
+  color: var(--color-text);
+  margin-top: 20px;
+}
+
+.booking-confirmation__subtitle {
+  font: 400 15px var(--font-body);
+  color: var(--color-text-secondary);
+  margin-top: 8px;
+  line-height: 1.5;
+}
+
+.booking-confirmation__summary {
+  margin: 0 22px 20px;
+}
+
+.booking-confirmation__summary-header {
+  padding: 14px 18px;
+  border-bottom: 1px solid var(--color-border-soft);
+}
+
+.booking-confirmation__summary-body {
+  padding: 14px 18px;
+  display: flex;
+  flex-direction: column;
+  gap: 10px;
+}
+
+.booking-confirmation__row {
+  display: flex;
+  justify-content: space-between;
+  align-items: baseline;
+  gap: 16px;
+}
+
+.booking-confirmation__row-label {
+  font: 400 13px var(--font-body);
+  color: var(--color-text-secondary);
+  flex-shrink: 0;
+}
+
+.booking-confirmation__row-value {
+  font: 600 13px var(--font-body);
+  color: var(--color-text);
+}
+
+.booking-confirmation__row-value--right {
+  text-align: right;
+}
+
+.booking-confirmation__divider {
+  height: 1px;
+  background: rgba(255, 255, 255, 0.05);
+}
+
+.booking-confirmation__status {
+  display: flex;
+  align-items: center;
+  gap: 6px;
+  font: 600 13px var(--font-body);
+  color: var(--color-gold);
+}
+
+.booking-confirmation__status-dot {
+  width: 6px;
+  height: 6px;
+  background: var(--color-gold);
+  border-radius: 50%;
+}
+
+.booking-confirmation__actions {
+  padding: 0 22px 16px;
+  display: flex;
+  flex-direction: column;
+  gap: 10px;
+}
+
+.booking-confirmation__note {
+  font: 400 12px var(--font-body);
+  color: var(--color-text-muted);
+  text-align: center;
+}
