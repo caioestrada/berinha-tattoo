@@ -20,6 +20,8 @@ export class PlaceholderImageComponent {
   @Input() label = 'foto';
   /** Picks a stripe color variant so grids don't look uniform. */
   @Input() seed = 0;
+  /** When set, renders the real photo instead of the placeholder stripe. */
+  @Input() image?: string;
 
   get background(): string {
     const [a, b] = STRIPE_PAIRS[this.seed % STRIPE_PAIRS.length];

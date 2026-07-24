@@ -1,13 +1,16 @@
 .home__hero {
   height: 290px;
   position: relative;
-  background: repeating-linear-gradient(-45deg, #1a1714 0, #1a1714 5px, #201e19 0, #201e19 22px);
+  background-color: #141210;
+  background-size: cover;
+  background-position: center 25%;
+  background-repeat: no-repeat;
 }
 
 .home__hero-content {
   position: absolute;
   inset: 0;
-  background: linear-gradient(to bottom, transparent 30%, rgba(12, 11, 9, 0.95) 100%);
+  background: linear-gradient(to bottom, rgba(12, 11, 9, 0.15) 0%, rgba(12, 11, 9, 0.55) 45%, rgba(12, 11, 9, 0.97) 100%);
   display: flex;
   flex-direction: column;
   justify-content: flex-end;
@@ -15,6 +18,7 @@
 }
 
 .home__handle {
+  display: inline-block;
   font: 300 12px var(--font-mono);
   color: rgba(201, 164, 100, 0.7);
   letter-spacing: 3px;

@@ -2,6 +2,27 @@ import { Injectable, signal } from '@angular/core';
 import { PortfolioCategory, PortfolioItem } from './portfolio-item.model';
 
 const SEED_ITEMS: PortfolioItem[] = [
+  {
+    id: 'nossa-senhora',
+    label: 'Nossa Senhora · realismo',
+    category: 'retratos',
+    seed: 6,
+    image: 'images/portfolio/nossa-senhora.jpg',
+  },
+  {
+    id: 'santo-leoes',
+    label: 'santo com leões · realismo',
+    category: 'retratos',
+    seed: 7,
+    image: 'images/portfolio/santo-leoes.jpg',
+  },
+  {
+    id: 'onca',
+    label: 'onça · realismo',
+    category: 'animais',
+    seed: 8,
+    image: 'images/portfolio/onca.jpg',
+  },
   { id: 'retrato-gato', label: 'retrato gato · realismo', category: 'retratos', seed: 0 },
   { id: 'flor', label: 'flor', category: 'realismo', seed: 1 },
   { id: 'olho', label: 'olho', category: 'realismo', seed: 2 },

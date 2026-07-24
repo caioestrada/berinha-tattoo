@@ -20,7 +20,7 @@
   <div class="portfolio__grid">
     @for (item of filteredItems(); track item.id) {
       <div class="portfolio__tile" [style.aspect-ratio]="1 + (item.seed % 3) * 0.3">
-        <app-placeholder-image [label]="item.label" [seed]="item.seed" />
+        <app-placeholder-image [label]="item.label" [seed]="item.seed" [image]="item.image" />
       </div>
     } @empty {
       <p class="portfolio__empty">Nenhum trabalho nessa categoria ainda.</p>

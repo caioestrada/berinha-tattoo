@@ -1,13 +1,19 @@
 <section class="home">
-  <div class="home__hero">
+  <div class="home__hero" [style.background-image]="'url(images/portfolio/nossa-senhora.jpg)'">
     <div class="home__hero-actions">
-      <button type="button" class="home__hero-icon" aria-label="Galeria">
+      <a
+        class="home__hero-icon"
+        href="https://www.instagram.com/berinhatattoo/"
+        target="_blank"
+        rel="noopener noreferrer"
+        aria-label="Instagram"
+      >
         <svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="#f5f0e8" stroke-width="2" stroke-linecap="round">
           <rect x="2" y="2" width="20" height="20" rx="5" />
           <circle cx="12" cy="12" r="5" />
           <circle cx="17.5" cy="6.5" r="1.2" fill="#f5f0e8" />
         </svg>
-      </button>
+      </a>
       <button type="button" class="home__hero-icon" aria-label="Mais informações">
         <svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="#f5f0e8" stroke-width="2" stroke-linecap="round">
           <path d="M12 2a10 10 0 100 20A10 10 0 0012 2z" />
@@ -16,9 +22,11 @@
       </button>
     </div>
     <div class="home__hero-content">
-      <div class="home__handle">&#64;berinha.tattoo</div>
+      <a class="home__handle" href="https://www.instagram.com/berinhatattoo/" target="_blank" rel="noopener noreferrer"
+        >&#64;berinha.tattoo</a
+      >
       <h1 class="home__title">BERINHA</h1>
-      <p class="home__subtitle">Tatuadora · Realismo · São Paulo</p>
+      <p class="home__subtitle">Tatuador · Realismo · São Paulo</p>
     </div>
   </div>
 
@@ -41,7 +49,7 @@
     <div class="home__recent-grid">
       @for (item of recentWork(); track item.id) {
         <div class="home__recent-tile">
-          <app-placeholder-image [label]="'foto'" [seed]="item.seed" />
+          <app-placeholder-image [label]="'foto'" [seed]="item.seed" [image]="item.image" />
         </div>
       }
     </div>

@@ -1,3 +1,7 @@
-<div class="placeholder-image" [style.background]="background">
-  <span class="placeholder-image__label">{{ label }}</span>
-</div>
+@if (image) {
+  <img class="placeholder-image__photo" [src]="image" [alt]="label" loading="lazy" />
+} @else {
+  <div class="placeholder-image" [style.background]="background">
+    <span class="placeholder-image__label">{{ label }}</span>
+  </div>
+}

@@ -1,0 +1,79 @@
+:host {
+  display: contents;
+}
+
+.pwa-banner {
+  position: fixed;
+  top: 0;
+  left: 0;
+  right: 0;
+  z-index: 200;
+  display: flex;
+  align-items: center;
+  gap: 12px;
+  padding: calc(env(safe-area-inset-top, 0px) + 10px) 14px 10px;
+  background: var(--color-bg-elevated);
+  border-bottom: 1px solid var(--color-gold-border);
+  box-shadow: 0 8px 24px rgba(0, 0, 0, 0.4);
+}
+
+.pwa-banner__icon {
+  display: block;
+  flex-shrink: 0;
+  border-radius: var(--radius-sm);
+}
+
+.pwa-banner__text {
+  flex: 1;
+  min-width: 0;
+  display: flex;
+  flex-direction: column;
+  gap: 2px;
+
+  strong {
+    font: 600 13px var(--font-body);
+    color: var(--color-text);
+  }
+
+  span {
+    font: 400 12px var(--font-body);
+    color: var(--color-text-secondary);
+  }
+}
+
+.pwa-banner__actions {
+  display: flex;
+  align-items: center;
+  gap: 8px;
+  flex-shrink: 0;
+}
+
+.pwa-banner__install {
+  padding: 8px 14px;
+  border: none;
+  border-radius: var(--radius-pill);
+  background: var(--color-gold);
+  color: var(--color-bg);
+  font: 600 13px var(--font-body);
+  cursor: pointer;
+}
+
+.pwa-banner__dismiss {
+  width: 28px;
+  height: 28px;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  border: none;
+  border-radius: 50%;
+  background: transparent;
+  color: var(--color-text-muted);
+  font-size: 14px;
+  line-height: 1;
+  cursor: pointer;
+
+  &:hover {
+    background: var(--color-surface);
+    color: var(--color-text);
+  }
+}
