@@ -1,14 +1,11 @@
 .client-shell {
-  display: flex;
-  flex-direction: column;
-  height: 100dvh;
   max-width: var(--shell-max-width);
   margin: 0 auto;
+  min-height: 100dvh;
   background: var(--color-bg);
 }
 
 .client-shell__content {
-  flex: 1 1 auto;
-  overflow-y: auto;
   padding-top: env(safe-area-inset-top, 0px);
+  padding-bottom: calc(var(--bottom-nav-height) + env(safe-area-inset-bottom, 0px));
 }
