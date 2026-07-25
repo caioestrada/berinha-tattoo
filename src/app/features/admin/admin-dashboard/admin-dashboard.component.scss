@@ -25,6 +25,23 @@
   margin-top: 2px;
 }
 
+.admin__header-actions {
+  display: flex;
+  align-items: center;
+  gap: 8px;
+}
+
+.admin__logout {
+  width: 32px;
+  height: 32px;
+  background: var(--color-surface-strong);
+  border-radius: 50%;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  flex-shrink: 0;
+}
+
 .admin__pending-badge {
   background: var(--color-gold-soft);
   border: 1px solid var(--color-gold-border);
@@ -43,6 +60,12 @@
   height: 6px;
   background: var(--color-gold);
   border-radius: 50%;
+}
+
+.admin__nav {
+  padding: 0 22px 18px;
+  display: flex;
+  gap: 6px;
 }
 
 .admin__tabs {

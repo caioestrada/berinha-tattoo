@@ -1,3 +1,5 @@
+import { PortfolioCategory } from '../portfolio/portfolio-item.model';
+
 export type TattooSize = 'P' | 'M' | 'G' | 'XL';
 
 export const TATTOO_SIZES: { value: TattooSize; label: string; hint: string }[] = [
@@ -26,6 +28,8 @@ export interface Booking {
   size: TattooSize;
   description: string;
   referenceLink?: string;
+  /** Estilo do pedido; ausente quando o cliente não indicou (fluxo público ainda não coleta isso). */
+  category?: PortfolioCategory;
   status: BookingStatus;
   createdAt: string;
 }

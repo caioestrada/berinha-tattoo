@@ -1,0 +1,139 @@
+<section class="reports">
+  <header class="reports__header">
+    <div>
+      <h1 class="reports__title">Relatórios</h1>
+      <p class="reports__date">{{ todayLabel }}</p>
+    </div>
+    <button type="button" class="reports__logout" (click)="logout()" aria-label="Sair">
+      <svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="rgba(245,240,232,.5)" stroke-width="2" stroke-linecap="round" stroke-linejoin="round">
+        <path d="M9 21H5a2 2 0 01-2-2V5a2 2 0 012-2h4" />
+        <polyline points="16,17 21,12 16,7" />
+        <line x1="21" y1="12" x2="9" y2="12" />
+      </svg>
+    </button>
+  </header>
+
+  <nav class="reports__nav">
+    <a routerLink="/admin" class="chip">Agendamentos</a>
+    <a routerLink="/admin/relatorios" class="chip is-active">Relatórios</a>
+  </nav>
+
+  <div class="reports__tabs">
+    @for (section of sections; track section.value) {
+      <button type="button" class="chip" [class.is-active]="activeSection() === section.value" (click)="selectSection(section.value)">
+        {{ section.label }}
+      </button>
+    }
+  </div>
+
+  @switch (activeSection()) {
+    @case ('funil') {
+      <div class="reports__section">
+        <p class="section-label">Funil de agendamentos</p>
+        <div class="reports__stats">
+          <div class="stat-tile stat-tile--gold">
+            <span class="stat-tile__value">{{ pendingCount() }}</span>
+            <span class="stat-tile__label">Pendentes</span>
+          </div>
+          <div class="stat-tile stat-tile--success">
+            <span class="stat-tile__value">{{ approvedCount() }}</span>
+            <span class="stat-tile__label">Aprovados</span>
+          </div>
+          <div class="stat-tile stat-tile--danger">
+            <span class="stat-tile__value">{{ rejectedCount() }}</span>
+            <span class="stat-tile__label">Recusados</span>
+          </div>
+        </div>
+        <p class="reports__note">{{ conversionRate() }}% dos pedidos viram tatuagem aprovada · {{ totalCount() }} pedidos no total</p>
+      </div>
+    }
+
+    @case ('dias') {
+      <div class="reports__section">
+        <p class="section-label">Dias da semana mais procurados</p>
+        <div class="bars">
+          @for (bar of weekdayBars(); track bar.label) {
+            <div class="bar-row">
+              <span class="bar-row__label">{{ bar.label }}</span>
+              <div class="bar-row__track"><div class="bar-row__fill" [style.width.%]="bar.percent"></div></div>
+              <span class="bar-row__value">{{ bar.count }}</span>
+            </div>
+          }
+        </div>
+      </div>
+    }
+
+    @case ('horarios') {
+      <div class="reports__section">
+        <p class="section-label">Horários mais pedidos</p>
+        <div class="bars">
+          @for (bar of timeSlotBars(); track bar.label) {
+            <div class="bar-row">
+              <span class="bar-row__label">{{ bar.label }}</span>
+              <div class="bar-row__track"><div class="bar-row__fill" [style.width.%]="bar.percent"></div></div>
+              <span class="bar-row__value">{{ bar.count }}</span>
+            </div>
+          }
+        </div>
+      </div>
+
+      <div class="reports__section">
+        <p class="section-label">Antecedência média do agendamento</p>
+        <p class="reports__hero">{{ avgLeadDays() }} <span>dias</span></p>
+      </div>
+    }
+
+    @case ('tamanhos') {
+      <div class="reports__section">
+        <p class="section-label">Tamanhos mais pedidos</p>
+        <div class="bars">
+          @for (bar of sizeBars(); track bar.label) {
+            <div class="bar-row">
+              <span class="bar-row__label">{{ bar.label }}</span>
+              <div class="bar-row__track"><div class="bar-row__fill" [style.width.%]="bar.percent"></div></div>
+              <span class="bar-row__value">{{ bar.count }}</span>
+            </div>
+          }
+        </div>
+      </div>
+    }
+
+    @case ('estilos') {
+      <div class="reports__section">
+        <p class="section-label">Estilos mais pedidos</p>
+        <div class="bars">
+          @for (bar of categoryDemandBars(); track bar.label) {
+            <div class="bar-row">
+              <span class="bar-row__label">{{ bar.label }}</span>
+              <div class="bar-row__track"><div class="bar-row__fill" [style.width.%]="bar.percent"></div></div>
+              <span class="bar-row__value">{{ bar.count }}</span>
+            </div>
+          }
+        </div>
+      </div>
+
+      <div class="reports__section">
+        <p class="section-label">Pedidos vs. portfólio publicado</p>
+        <div class="reports__legend">
+          <span class="legend-item"><span class="legend-dot legend-dot--demand"></span>Pedidos</span>
+          <span class="legend-item"><span class="legend-dot legend-dot--portfolio"></span>Portfólio</span>
+        </div>
+        <div class="comparison">
+          @for (item of categoryComparison(); track item.label) {
+            <div class="comparison__group">
+              <span class="comparison__label">{{ item.label }}</span>
+              <div class="bar-row bar-row--compact">
+                <div class="bar-row__track"><div class="bar-row__fill bar-row__fill--demand" [style.width.%]="item.demandPercent"></div></div>
+                <span class="bar-row__value">{{ item.demandCount }}</span>
+              </div>
+              <div class="bar-row bar-row--compact">
+                <div class="bar-row__track"><div class="bar-row__fill bar-row__fill--portfolio" [style.width.%]="item.portfolioPercent"></div></div>
+                <span class="bar-row__value">{{ item.portfolioCount }}</span>
+              </div>
+            </div>
+          }
+        </div>
+      </div>
+    }
+  }
+</section>

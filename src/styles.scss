@@ -36,7 +36,7 @@
   --radius-sm: 10px;
   --radius-pill: 999px;
 
-  --shell-max-width: 480px;
+  --shell-max-width: clamp(480px, 90vw, 680px);
 }
 
 // ---------------------------------------------------------------------------

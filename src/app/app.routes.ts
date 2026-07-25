@@ -1,6 +1,7 @@
 import { Routes } from '@angular/router';
 import { ClientShellComponent } from './layout/client-shell/client-shell.component';
 import { hasDateTimeGuard, hasSubmissionGuard } from './features/booking/booking-flow.guard';
+import { adminAuthGuard } from './features/admin/admin-auth.guard';
 
 export const routes: Routes = [
   {
@@ -49,9 +50,21 @@ export const routes: Routes = [
     ],
   },
   {
+    path: 'admin/login',
+    loadComponent: () =>
+      import('./features/admin/admin-login/admin-login.component').then((m) => m.AdminLoginComponent),
+  },
+  {
     path: 'admin',
+    canActivate: [adminAuthGuard],
     loadComponent: () =>
       import('./features/admin/admin-dashboard/admin-dashboard.component').then((m) => m.AdminDashboardComponent),
+  },
+  {
+    path: 'admin/relatorios',
+    canActivate: [adminAuthGuard],
+    loadComponent: () =>
+      import('./features/admin/admin-reports/admin-reports.component').then((m) => m.AdminReportsComponent),
   },
   { path: '**', redirectTo: '' },
 ];

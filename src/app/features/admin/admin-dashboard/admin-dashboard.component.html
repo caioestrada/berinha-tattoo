@@ -4,11 +4,25 @@
       <h1 class="admin__title">Agendamentos</h1>
       <p class="admin__date">{{ todayLabel }}</p>
     </div>
-    <div class="admin__pending-badge">
-      <span class="admin__pending-dot"></span>
-      <span>{{ pendingCount() }} pendentes</span>
+    <div class="admin__header-actions">
+      <div class="admin__pending-badge">
+        <span class="admin__pending-dot"></span>
+        <span>{{ pendingCount() }} pendentes</span>
+      </div>
+      <button type="button" class="admin__logout" (click)="logout()" aria-label="Sair">
+        <svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="rgba(245,240,232,.5)" stroke-width="2" stroke-linecap="round" stroke-linejoin="round">
+          <path d="M9 21H5a2 2 0 01-2-2V5a2 2 0 012-2h4" />
+          <polyline points="16,17 21,12 16,7" />
+          <line x1="21" y1="12" x2="9" y2="12" />
+        </svg>
+      </button>
     </div>
   </header>
+
+  <nav class="admin__nav">
+    <a routerLink="/admin" class="chip is-active">Agendamentos</a>
+    <a routerLink="/admin/relatorios" class="chip">Relatórios</a>
+  </nav>
 
   <div class="admin__tabs">
     @for (tab of tabs; track tab.value) {
